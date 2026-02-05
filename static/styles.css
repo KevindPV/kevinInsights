@@ -621,6 +621,28 @@ h1 span {
   color: #333333;
 }
 
+/* ===== Footer (Render Fallback) ===== */
+footer.footer {
+  background: #efefef;
+  color: #111111;
+  padding: 40px 0;
+}
+
+footer.footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+footer.footer .footer-links a {
+  color: #0b8e9a;
+  text-decoration: underline;
+  font-weight: 600;
+  display: inline-block;
+  align-self: flex-start;
+}
+
 /* ===== AI Testing Lab (Form) ===== */
 .ai-form {
   margin-top: 16px;
