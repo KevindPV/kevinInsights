@@ -10,7 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/static/styles.css?v=1" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v=1" />
   </head>
   <body>
     {% include "header.html" %}
@@ -34,7 +35,7 @@
     </main>
 
     {% include "footer.html" %}
-    <script src="/static/site.js?v=1"></script>
+    <script src="{% static 'site.js' %}?v=1"></script>
     <script>
       (function () {
         var root = document.documentElement;
