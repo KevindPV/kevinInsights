@@ -1,0 +1,12 @@
+<article class="card">
+  <h2>{{ title }}</h2>
+  <p>{{ text }}</p>
+  {% if pills_html %}
+  <div class="pill-row">
+    {{ pills_html|safe }}
+  </div>
+  {% endif %}
+  {% if extra_html %}
+    {{ extra_html|safe }}
+  {% endif %}
+</article>

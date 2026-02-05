@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Testing Lab | Kevin QA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css?v=1" />
+  </head>
+  <body>
+    {% include "header.html" %}
+
+    <main class="page">
+      <section class="banner ai-lab">
+        <div class="badge">AI Testing Lab</div>
+        <h1>
+          AI-powered testing,
+          <span>experiments and insights</span>
+        </h1>
+        <p class="lead">
+          Write your request below to try a simple AI test flow.
+        </p>
+        <div class="ai-grid">
+          <div class="ai-form-panel">
+          <form class="ai-form" id="aiForm">
+            {% csrf_token %}
+            <label for="aiPrompt">Request</label>
+            <textarea id="aiPrompt" name="aiPrompt" rows="4" placeholder="Write your request..."></textarea>
+            <button class="btn primary" type="submit">Try it!</button>
+          </form>
+            <h3 class="ai-response-title">AI Response</h3>
+            <div class="ai-response" id="aiResponse" aria-live="polite"></div>
+          </div>
+          <aside class="ai-right">
+            <div class="code-card">
+              <div class="code-title">Gherkin sample</div>
+              <pre><code class="language-gherkin">Feature: Login
+  Scenario: User logs in successfully
+    Given the user is on the login page
+    When the user enters valid credentials
+    And clicks the login button
+    Then the dashboard should be displayed
+</code></pre>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="/static/site.js?v=1"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById("themeToggle");
+        var stored = localStorage.getItem("theme");
+        if (stored) {
+          root.setAttribute("data-theme", stored);
+        }
+
+        button.addEventListener("click", function () {
+          var current = root.getAttribute("data-theme") || "light";
+          var next = current === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+
+        var form = document.getElementById("aiForm");
+        var responseEl = document.getElementById("aiResponse");
+        if (!form || !responseEl) return;
+        function getCookie(name) {
+          var value = "; " + document.cookie;
+          var parts = value.split("; " + name + "=");
+          if (parts.length === 2) return parts.pop().split(";").shift();
+          return "";
+        }
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var prompt = document.getElementById("aiPrompt").value.trim();
+          if (!prompt) {
+            responseEl.textContent = "Please write a request.";
+            return;
+          }
+          responseEl.textContent = "Working...";
+          fetch("/api/gemini/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": getCookie("csrftoken"),
+            },
+            body: JSON.stringify({ prompt: prompt }),
+          })
+            .then(function (res) {
+              return res.json();
+            })
+            .then(function (data) {
+              if (data.text) {
+                responseEl.innerHTML = data.text;
+                return;
+              }
+              if (data.error) {
+                responseEl.textContent = data.error;
+                return;
+              }
+              responseEl.textContent = JSON.stringify(data.raw || data, null, 2);
+            })
+            .catch(function () {
+              responseEl.textContent = "Something went wrong. Try again.";
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

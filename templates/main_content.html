@@ -1,0 +1,48 @@
+<section class="section grid">
+  {% include "components/card.html" with title="Enfoque de calidad" text="Cada release pasa por una matriz de riesgo clara: criticidad, frecuencia y superficie de usuario. Priorizo pruebas que protegen lo más valioso del producto." pills_html='<span class="pill">Riesgo primero</span><span class="pill">Cobertura real</span><span class="pill">Trazabilidad</span>' %}
+  {% include "components/card.html" with title="Automatización con intención" text="Automatizo flujos estables y de alto valor para liberar tiempo exploratorio y acelerar feedback. Lo frágil se documenta, lo crítico se prueba." pills_html='<span class="pill">Smoke inteligente</span><span class="pill">Regresión modular</span><span class="pill">CI listo</span>' %}
+  {% include "components/card.html" with title="Colaboración visible" text="Trabajo con producto, diseño y dev en un mismo lenguaje: métricas, escenarios y decisiones. Menos sorpresas, más confianza." pills_html='<span class="pill">Triage claro</span><span class="pill">Defectos accionables</span><span class="pill">Criterios de salida</span>' %}
+</section>
+
+<section class="section" id="stack">
+  <div class="section-header">
+    <h2>Stack de herramientas</h2>
+    <p>Selección ajustada a velocidad, estabilidad y trazabilidad.</p>
+  </div>
+  <div class="grid">
+    {% include "components/card.html" with title="Testing" text="Herramientas para automatización y APIs." extra_html='<div class="mini-chart"><div class="mini-bar"><span>Selenium</span><div class="mini-track"><div class="mini-fill" style="width: 80%"></div></div></div></div><div class="mini-chart"><div class="mini-bar"><span>Postman</span><div class="mini-track"><div class="mini-fill" style="width: 80%"></div></div></div></div>' %}
+    {% include "components/card.html" with title="Gestión" text="Seguimiento, trazabilidad y documentación." extra_html='<div class="mini-chart"><div class="mini-bar"><span>Jira</span><div class="mini-track"><div class="mini-fill" style="width: 90%"></div></div></div><div class="mini-bar"><span>Azure</span><div class="mini-track"><div class="mini-fill" style="width: 75%"></div></div></div></div>' %}
+    {% include "components/card.html" with title="Observabilidad" text="Detección temprana y monitoreo." pills_html='<span class="pill">Datadog</span><span class="pill">Sentry</span><span class="pill">Grafana</span>' %}
+    {% include "components/card.html" with title="Calidad continua" text="CI/CD y calidad automatizada." pills_html='<span class="pill">GitHub Actions</span><span class="pill">GitLab CI</span><span class="pill">SonarQube</span>' %}
+  </div>
+</section>
+
+<section class="section" id="impacto">
+  <div class="section-header">
+    <h2>Impacto medible</h2>
+    <p>Indicadores que reflejan seguridad real en cada release.</p>
+  </div>
+  <div class="grid">
+    {% include "components/card.html" with title="Defectos por severidad" text="Reducción sostenida del 22% en bugs críticos desde la última versión." pills_html='<span class="pill">Críticos ↓</span><span class="pill">Triage 48h</span><span class="pill">Fugas mín.</span>' %}
+    {% include "components/card.html" with title="Cobertura funcional" text="95% de journeys prioritarios validados antes del release." pills_html='<span class="pill">Smoke</span><span class="pill">Regresión</span><span class="pill">Exploración</span>' %}
+    {% include "components/card.html" with title="Velocidad de feedback" text="Reporte estructurado en menos de 24 horas para nuevos incidentes." pills_html='<span class="pill">Alertas</span><span class="pill">RCA</span><span class="pill">Seguimiento</span>' %}
+  </div>
+</section>
+
+<section class="section process">
+  <div class="section-header">
+    <h2>Proceso de QA</h2>
+    <p>Diseñado para detectar rápido, comunicar claro y cerrar fuerte.</p>
+  </div>
+  <div class="steps">
+    {% for step in steps %}
+      <div class="step">
+        <span>{{ forloop.counter }}</span>
+        <div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

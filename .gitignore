@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.sqlite3
+
+# Virtualenv
+venv/
+.venv/
+
+# Env
+.env
+
+# Coverage
+.coverage
+coverage.xml
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Kevin QA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css?v=1" />
+  </head>
+  <body>
+    {% include "header.html" %}
+
+    <main class="page">
+      <section class="banner">
+        <div class="badge">Contact</div>
+        <h1>
+          Let’s talk,
+          <span>I’m ready to help</span>
+        </h1>
+        <p class="lead">
+          Want to talk about QA, improve your testing strategy, or add support to
+          your team? Write to me and I’ll get back to you soon.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:kevinpantojav@gmail.com">Send email</a>
+          <a class="btn ghost" href="tel:+573001234567">Call me</a>
+        </div>
+      </section>
+    </main>
+
+    {% include "footer.html" %}
+    <script src="/static/site.js?v=1"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById("themeToggle");
+        var stored = localStorage.getItem("theme");
+        if (stored) {
+          root.setAttribute("data-theme", stored);
+        }
+
+        button.addEventListener("click", function () {
+          var current = root.getAttribute("data-theme") || "light";
+          var next = current === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+      })();
+    </script>
+  </body>
+</html>

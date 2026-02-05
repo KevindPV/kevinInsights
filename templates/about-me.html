@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me | Kevin QA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css?v=1" />
+  </head>
+  <body>
+    {% include "header.html" %}
+
+    <main class="page">
+      <section class="banner">
+        <div class="badge">About Me</div>
+        <h1>
+          QA Analyst &amp; Engineer,
+          <span>focused on quality and clarity</span>
+        </h1>
+        <p class="lead">
+          Bilingual Manual QA Analyst (Advanced English) and Electronic Engineer,
+          with solid experience designing and executing manual test cases and
+          test scenarios based on user stories within Agile/Scrum teams. Strong
+          background in smoke and regression testing, bug identification,
+          documentation, and tracking using JIRA. Experienced in collaborating
+          closely with cross-functional teams, actively participating in Scrum
+          ceremonies, and ensuring acceptance criteria are met. Recognized for
+          critical thinking, strong analytical skills, adaptability, organization,
+          and effective communication in English.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="/#impacto">Ver impacto</a>
+          <a class="btn ghost" href="/#stack">Stack de herramientas</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Bilingual (Advanced English)</h2>
+          <p>
+            Comunicación clara con equipos globales, documentación precisa y
+            participación activa en ceremonias Agile/Scrum en inglés.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h2>English Proficiency</h2>
+            <p>
+              My English allows me to work in international environments, hold
+              conversations with global teams, and deliver talks to larger
+              audiences. I also write test cases, reports, and acceptance
+              criteria in English with clarity.
+            </p>
+            <div class="mini-chart">
+              <div class="mini-bar">
+                <span>Speaking</span>
+                <div class="mini-track">
+                  <div class="mini-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="mini-bar">
+                <span>Writing</span>
+                <div class="mini-track">
+                  <div class="mini-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="mini-bar">
+                <span>Listening</span>
+                <div class="mini-track">
+                  <div class="mini-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="mini-bar">
+                <span>Reading</span>
+                <div class="mini-track">
+                  <div class="mini-fill" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <h2>Collaboration</h2>
+            <p>
+              Facilito la coordinación entre QA, producto y desarrollo, evitando
+              malentendidos y acelerando decisiones.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Scrum ceremonies</span>
+              <span class="pill">Stakeholder updates</span>
+              <span class="pill">Documentation</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    {% include "footer.html" %}
+    <script src="/static/site.js?v=1"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById("themeToggle");
+        var stored = localStorage.getItem("theme");
+        if (stored) {
+          root.setAttribute("data-theme", stored);
+        }
+
+        button.addEventListener("click", function () {
+          var current = root.getAttribute("data-theme") || "light";
+          var next = current === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
+      })();
+    </script>
+  </body>
+</html>
