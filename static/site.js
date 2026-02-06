@@ -21,6 +21,7 @@
 
   stacks.forEach(function (stack) {
     var toggle = stack.querySelector("[data-animated-toggle]") || stack;
+    var lastTouch = 0;
 
     var setOpen = function (next) {
       stack.classList.toggle("is-open", next);
@@ -34,9 +35,15 @@
       setOpen(!stack.classList.contains("is-open"));
     };
 
-    toggle.addEventListener("pointerup", onToggle);
-    toggle.addEventListener("touchend", onToggle, { passive: false });
-    toggle.addEventListener("click", onToggle);
+    toggle.addEventListener("touchstart", function (e) {
+      lastTouch = Date.now();
+      onToggle(e);
+    }, { passive: false });
+
+    toggle.addEventListener("click", function (e) {
+      if (Date.now() - lastTouch < 500) return;
+      onToggle(e);
+    });
     toggle.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         onToggle(e);
