@@ -12,8 +12,12 @@
     />
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'header.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'footer.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'banner.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'about-me.css' %}?v=1" />
   </head>
-  <body>
+  <body class="about-page">
     {% include "header.html" %}
 
     <main class="page">

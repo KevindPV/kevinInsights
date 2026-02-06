@@ -1,0 +1,85 @@
+/* ===== About Me Page Styles (Scoped) ===== */
+.about-page .banner {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.about-page .lead {
+  max-width: 680px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.about-page .cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-page .section {
+  margin-bottom: 72px;
+}
+
+.about-page .section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.about-page .section-header p {
+  color: var(--muted);
+}
+
+.about-page .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.about-page .card {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+
+.about-page .card h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.about-page .card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.about-page .mini-chart {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.about-page .mini-bar span {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.about-page .mini-track {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.about-page .mini-fill {
+  height: 100%;
+  background: var(--accent-2);
+}
+
+[data-theme="dark"] .about-page .mini-track {
+  background: rgba(255, 255, 255, 0.12);
+}
