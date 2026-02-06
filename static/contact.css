@@ -1,0 +1,11 @@
+/* ===== Contact Page Layout ===== */
+.contact-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page .page {
+  flex: 1;
+  width: 100%;
+}
