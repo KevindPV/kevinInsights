@@ -1,3 +1,24 @@
+<section class="section">
+  <div class="section-header">
+    <h2>Brief Profile Summary</h2>
+    <p>Professional Overview</p>
+  </div>
+  <div class="grid">
+    {% include "components/card.html" with title="Experiencia" text="3 años en QA manual y automatizacion." %}
+    {% include "components/card.html" with title="Stack clave" text="Selenium, JMeter, Postman, Jira, SQL, CI/CD." %}
+    {% include "components/card.html" with title="Inglés" text="Bilingue (EN/ES) para equipos globales." %}
+    {% include "components/card.html" with title="Disponibilidad" text="Full-time / immediate" %}
+  </div>
+  <div class="pill-row" style="margin-top: 12px;">
+    {% include "components/pill.html" with text="Selenium" %}
+    {% include "components/pill.html" with text="JMeter" %}
+    {% include "components/pill.html" with text="Postman" %}
+    {% include "components/pill.html" with text="Jira" %}
+    {% include "components/pill.html" with text="SQL" %}
+    {% include "components/pill.html" with text="CI/CD" %}
+  </div>
+</section>
+
 <section class="section grid">
   {% include "components/card.html" with title="Enfoque de calidad" text="Cada release pasa por una matriz de riesgo clara: criticidad, frecuencia y superficie de usuario. Priorizo pruebas que protegen lo más valioso del producto." pills_html='<span class="pill">Riesgo primero</span><span class="pill">Cobertura real</span><span class="pill">Trazabilidad</span>' %}
   {% include "components/card.html" with title="Automatización con intención" text="Automatizo flujos estables y de alto valor para liberar tiempo exploratorio y acelerar feedback. Lo frágil se documenta, lo crítico se prueba." pills_html='<span class="pill">Smoke inteligente</span><span class="pill">Regresión modular</span><span class="pill">CI listo</span>' %}

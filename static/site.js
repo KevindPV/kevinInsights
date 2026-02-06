@@ -14,3 +14,33 @@
     panel.classList.remove("open");
   });
 })();
+
+(function () {
+  var stacks = document.querySelectorAll("[data-animated-stack]");
+  if (!stacks.length) return;
+
+  stacks.forEach(function (stack) {
+    var toggle = stack.querySelector("[data-animated-toggle]") || stack;
+
+    var setOpen = function (next) {
+      stack.classList.toggle("is-open", next);
+      if (toggle && toggle.setAttribute) {
+        toggle.setAttribute("aria-expanded", next ? "true" : "false");
+      }
+    };
+
+    var onToggle = function (e) {
+      e.preventDefault();
+      setOpen(!stack.classList.contains("is-open"));
+    };
+
+    toggle.addEventListener("pointerup", onToggle);
+    toggle.addEventListener("touchend", onToggle, { passive: false });
+    toggle.addEventListener("click", onToggle);
+    toggle.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        onToggle(e);
+      }
+    });
+  });
+})();

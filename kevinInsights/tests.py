@@ -39,7 +39,11 @@ class ViewTests(TestCase):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
         self.assertIn("steps", response.context)
-        self.assertEqual(len(response.context["steps"]), 4)
+        self.assertEqual(len(response.context["steps"]), 5)
+
+    def test_about_me_get_ok(self):
+        response = self.client.get("/about-me/")
+        self.assertEqual(response.status_code, 200)
 
     def test_gemini_invalid_json(self):
         response = self.client.post(

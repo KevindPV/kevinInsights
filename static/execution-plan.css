@@ -1,0 +1,12 @@
+/* ===== Execution Plan Section ===== */
+.impact-90 .grid {
+  gap: 20px;
+}
+
+.impact-90 .card h2 {
+  margin-bottom: 10px;
+}
+
+.impact-90 .card p {
+  color: var(--muted);
+}

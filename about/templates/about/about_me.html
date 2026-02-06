@@ -22,7 +22,7 @@
 
     <main class="page">
       <section class="banner">
-        {% include "components/badge.html" with text="About Me" %}
+        <div class="badge">About Me</div>
         <h1>
           QA Analyst &amp; Engineer,
           <span>focused on quality and clarity</span>
@@ -48,8 +48,8 @@
         <div class="section-header">
           <h2>Bilingual (Advanced English)</h2>
           <p>
-            Comunicación clara con equipos globales, documentación precisa y
-            participación activa en ceremonias Agile/Scrum en inglés.
+            Comunicacion clara con equipos globales, documentacion precisa y
+            participacion activa en ceremonias Agile/Scrum en ingles.
           </p>
         </div>
         <div class="grid">
@@ -62,42 +62,26 @@
               criteria in English with clarity.
             </p>
             <div class="mini-chart">
+              {% for bar in proficiency_bars %}
               <div class="mini-bar">
-                <span>Speaking</span>
+                <span>{{ bar.label }}</span>
                 <div class="mini-track">
-                  <div class="mini-fill" style="width: 90%"></div>
+                  <div class="mini-fill" style="width: {{ bar.width }}%"></div>
                 </div>
               </div>
-              <div class="mini-bar">
-                <span>Writing</span>
-                <div class="mini-track">
-                  <div class="mini-fill" style="width: 80%"></div>
-                </div>
-              </div>
-              <div class="mini-bar">
-                <span>Listening</span>
-                <div class="mini-track">
-                  <div class="mini-fill" style="width: 90%"></div>
-                </div>
-              </div>
-              <div class="mini-bar">
-                <span>Reading</span>
-                <div class="mini-track">
-                  <div class="mini-fill" style="width: 85%"></div>
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </article>
           <article class="card">
             <h2>Collaboration</h2>
             <p>
-              Facilito la coordinación entre QA, producto y desarrollo, evitando
+              Facilito la coordinacion entre QA, producto y desarrollo, evitando
               malentendidos y acelerando decisiones.
             </p>
             <div class="pill-row">
-              {% include "components/pill.html" with text="Scrum ceremonies" %}
-              {% include "components/pill.html" with text="Stakeholder updates" %}
-              {% include "components/pill.html" with text="Documentation" %}
+              {% for tag in collaboration_tags %}
+              <span class="pill">{{ tag }}</span>
+              {% endfor %}
             </div>
           </article>
         </div>

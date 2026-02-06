@@ -16,14 +16,14 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.views.generic import TemplateView
 
 from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("about-me/", TemplateView.as_view(template_name="about-me.html"), name="about_me"),
+    path("about-me/", include("about.urls")),
     path("contact/", TemplateView.as_view(template_name="contact.html"), name="contact"),
     path("ai-testing-lab/", TemplateView.as_view(template_name="ai-testing-lab.html"), name="ai_testing_lab"),
     path("api/gemini/", views.gemini_request, name="gemini_request"),
