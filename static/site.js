@@ -51,3 +51,18 @@
     });
   });
 })();
+
+(function () {
+  var flashlights = document.querySelectorAll("[data-flashlight]");
+  if (!flashlights.length) return;
+
+  flashlights.forEach(function (flashlight) {
+    var toggle = flashlight.querySelector("[data-flashlight-toggle]");
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+      var isOn = flashlight.classList.toggle("is-on");
+      toggle.setAttribute("aria-pressed", isOn ? "true" : "false");
+    });
+  });
+})();
