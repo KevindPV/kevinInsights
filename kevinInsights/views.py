@@ -21,8 +21,14 @@ def home(request):
     lamp_focus_items = [
         "PyTest 🧪",
         "Selenium 🤖",
+        "BDD",
+        "Jmeter",
+        "",
+        "Detail oriented person",
+        "",
+        "",
+        "",
         "Automation for critical paths",
-        "Shift-left quality checks",
     ]
     context = {
         "steps": steps,
