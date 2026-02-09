@@ -18,7 +18,18 @@ def home(request):
         ("Mejora continua", "Analizo métricas, realizo post-mortems y ajusto pipelines, cobertura y procesos para elevar la calidad sprint tras sprint."),
     ]
     steps = [{"title": title, "text": text} for title, text in steps_data]
-    return render(request, "index.html", {"steps": steps})
+    lamp_focus_items = [
+        "PyTest 🤖",
+        "Fast regression feedback",
+        "Automation for critical paths",
+        "Shift-left quality checks",
+    ]
+    context = {
+        "steps": steps,
+        "lamp_overlay_title": "QA Focus",
+        "lamp_focus_items": lamp_focus_items,
+    }
+    return render(request, "index.html", context)
 
 
 @require_POST

@@ -66,3 +66,22 @@
     });
   });
 })();
+
+(function () {
+  var lamps = document.querySelectorAll("[data-lamp-svg]");
+  if (!lamps.length) return;
+
+  lamps.forEach(function (lamp) {
+    lamp.addEventListener("pointerup", function (e) {
+      var toggle = e.target.closest("[data-lamp-toggle]");
+      if (!toggle) return;
+      var isOn = lamp.classList.toggle("is-on");
+      var lampId = lamp.getAttribute("data-lamp-id");
+      if (!lampId) return;
+      var overlay = document.querySelector('[data-lamp-target="' + lampId + '"]');
+      if (overlay) {
+        overlay.classList.toggle("is-visible", isOn);
+      }
+    });
+  });
+})();

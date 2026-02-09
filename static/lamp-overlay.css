@@ -1,0 +1,85 @@
+/* ===== Lamp Overlay Component ===== */
+.lamp-block {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 72px;
+}
+
+.lamp-block .lamp-svg-section {
+  margin: 0;
+}
+
+.lamp-overlay-section {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lamp-overlay-section.is-visible {
+  opacity: 1;
+}
+
+.lamp-overlay__content {
+  position: absolute;
+  left: 42%;
+  top: 34%;
+  transform: translateX(-50%);
+  width: min(72%, 300px);
+  max-width: 300px;
+  text-align: center;
+  color: #2c3340;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.35);
+}
+
+.lamp-overlay__title {
+  font-size: 28px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.lamp-overlay__text {
+  font-size: 16px;
+  color: rgba(44, 51, 64, 0.88);
+}
+
+.lamp-overlay__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.lamp-overlay__item {
+  font-size: 15px;
+  line-height: 1.3;
+  color: rgba(44, 51, 64, 0.9);
+}
+
+.lamp-overlay__item::before {
+  content: "- ";
+}
+
+@media (max-width: 768px) {
+  .lamp-block {
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .lamp-overlay-section {
+    padding: 0;
+  }
+
+  .lamp-overlay__content {
+    left: 40%;
+    top: 32%;
+    width: min(76%, 250px);
+  }
+
+  .lamp-overlay__title {
+    font-size: 24px;
+  }
+}

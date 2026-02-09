@@ -1,0 +1,16 @@
+<section class="section lamp-overlay-section" data-lamp-target="{{ lamp_id|default:'home-lamp' }}">
+  <div class="lamp-overlay__content">
+    <h3 class="lamp-overlay__title">{{ lamp_overlay_title|default:"Early Bug Detection" }}</h3>
+    {% if lamp_focus_items %}
+      <ul class="lamp-overlay__list">
+        {% for item in lamp_focus_items %}
+          <li class="lamp-overlay__item">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="lamp-overlay__text">
+        {{ overlay_text|default:"Detect issues before release and reduce production risk." }}
+      </p>
+    {% endif %}
+  </div>
+</section>

@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{% static 'execution-plan.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'animated-card.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'flashlight.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'lamp-svg.css' %}" />
+    <link rel="stylesheet" href="{% static 'lamp-overlay.css' %}?v=4" />
   </head>
   <body class="home-page">
     <div class="bg-orb orb-1"></div>
@@ -31,12 +33,15 @@
       {% include "components/flashlight.html" %}
       {% include "execution_plan.html" %}
       {% include "components/animated_card.html" %}
-
+      <div class="lamp-block">
+        {% include "components/lamp_svg.html" with lamp_id="home-lamp" %}
+        {% include "components/lamp_overlay.html" with lamp_id="home-lamp" %}
+      </div>
       {% include "main_content.html" %}
 
     </main>
     {% include "footer.html" %}
-    <script src="{% static 'site.js' %}?v=2"></script>
+    <script src="{% static 'site.js' %}?v=5"></script>
     <script>
       (function () {
         var root = document.documentElement;

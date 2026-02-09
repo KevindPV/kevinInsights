@@ -1,0 +1,64 @@
+<section class="section lamp-svg-section">
+  <svg class="lamp-svg" data-lamp-svg data-lamp-id="{{ lamp_id|default:'home-lamp' }}" viewBox="0 0 430 740" role="img" aria-label="Desk lamp with warm light beam">
+    <defs>
+      <style>
+        .bg { fill: #e9e9ea; }
+        .lamp-main { fill: #464d59; }
+        .lamp-mid { fill: #59606d; }
+        .lamp-dark { fill: #3d434f; }
+        .lamp-stroke { fill: none; stroke: #464d59; stroke-width: 16; stroke-linecap: round; }
+        .lamp-inner { fill: #b9bdc3; }
+        .beam-main { fill: rgba(243, 222, 167, 0.62); fill-opacity: 0; transition: fill-opacity .2s ease; }
+        .beam-fade { fill: rgba(243, 222, 167, 0.2); fill-opacity: 0; transition: fill-opacity .2s ease; }
+        .power-btn-bg { fill: #1d2129; }
+        .power-ring { fill: none; stroke: #8e98a7; stroke-width: 2.4; transition: stroke .2s ease; }
+        .power-icon { fill: none; stroke: #a4aebe; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s ease; }
+        .power-glow { fill: rgba(73,240,90,0); transition: fill .2s ease; }
+        .power-btn { cursor: pointer; pointer-events: all; }
+        .power-hit { fill: #000; opacity: 0.001; }
+        .lamp-svg.is-on .beam-main { fill-opacity: 1; }
+        .lamp-svg.is-on .beam-fade { fill-opacity: 1; }
+        .lamp-svg.is-on .power-ring { stroke: #49f05a; }
+        .lamp-svg.is-on .power-icon { stroke: #7dff8a; }
+        .lamp-svg.is-on .power-glow { fill: rgba(73,240,90,0.25); }
+      </style>
+      <filter id="powerGlow" x="-200%" y="-200%" width="500%" height="500%">
+        <feGaussianBlur stdDeviation="3" result="b" />
+        <feMerge>
+          <feMergeNode in="b" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    <rect class="bg" x="0" y="0" width="430" height="740" />
+
+    <polygon class="beam-main" points="120,165 240,165 300,648 55,648" />
+    <polygon class="beam-fade" points="135,170 225,170 273,642 79,642" />
+
+    <rect class="lamp-dark" x="194" y="694" width="194" height="26" rx="9" />
+    <rect class="lamp-mid" x="206" y="664" width="168" height="42" rx="12" />
+    <rect class="lamp-main" x="215" y="652" width="50" height="26" rx="6" />
+    <g class="power-btn" data-lamp-toggle filter="url(#powerGlow)">
+      <circle class="power-hit" cx="290" cy="684" r="22" />
+      <circle class="power-glow" cx="290" cy="684" r="16" />
+      <circle class="power-btn-bg" cx="290" cy="684" r="12.5" />
+      <circle class="power-ring" cx="290" cy="684" r="10.2" />
+      <path class="power-icon" d="M290 678.5 L290 686.5" />
+      <path class="power-icon" d="M285 686 A5 5 0 1 0 295 686" />
+      <circle cx="290" cy="684" r="18" fill="transparent" />
+    </g>
+
+    <rect class="lamp-main" x="282" y="214" width="16" height="452" rx="7" />
+    <rect class="lamp-main" x="286" y="192" width="8" height="26" rx="4" />
+
+    <line class="lamp-stroke" x1="258" y1="148" x2="290" y2="181" />
+    <circle class="lamp-mid" cx="258" cy="148" r="20" />
+    <circle class="lamp-dark" cx="258" cy="148" r="10" />
+    <circle class="lamp-mid" cx="290" cy="181" r="20" />
+    <circle class="lamp-dark" cx="290" cy="181" r="10" />
+
+    <path class="lamp-main" d="M84 130 C95 85, 141 55, 188 57 C228 59, 261 83, 274 120 C278 132, 278 142, 276 149 C262 164, 100 172, 75 142 C75 138, 78 134, 84 130 Z" />
+    <path class="lamp-inner" d="M76 142 C95 164, 259 156, 276 149 C273 161, 266 170, 256 173 C207 183, 125 183, 88 174 C81 170, 77 160, 76 142 Z" />
+  </svg>
+</section>
