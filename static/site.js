@@ -19,9 +19,14 @@
   var stacks = document.querySelectorAll("[data-animated-stack]");
   if (!stacks.length) return;
 
+  var shouldUseTapToggle = function () {
+    return window.matchMedia("(max-width: 1022px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+  };
+
   stacks.forEach(function (stack) {
     var toggle = stack.querySelector("[data-animated-toggle]") || stack;
-    var lastTouch = 0;
+    var lastTapTs = 0;
 
     var setOpen = function (next) {
       stack.classList.toggle("is-open", next);
@@ -35,15 +40,21 @@
       setOpen(!stack.classList.contains("is-open"));
     };
 
-    toggle.addEventListener("touchstart", function (e) {
-      lastTouch = Date.now();
+    var onTapLike = function (e) {
+      if (!shouldUseTapToggle()) return;
+      lastTapTs = Date.now();
       onToggle(e);
-    }, { passive: false });
+    };
 
+    // Tablet/mobile: open/close by pressing card 1.
+    toggle.addEventListener("pointerup", onTapLike);
     toggle.addEventListener("click", function (e) {
-      if (Date.now() - lastTouch < 500) return;
+      if (!shouldUseTapToggle()) return;
+      // Avoid double-fire when pointer/touch already handled the same tap.
+      if (Date.now() - lastTapTs < 350) return;
       onToggle(e);
     });
+
     toggle.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         onToggle(e);

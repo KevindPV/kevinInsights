@@ -99,7 +99,7 @@ body.home-page .bg-grid {
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 64px 24px 40px;
+  padding: 40px 18px 72px;
 }
 
 
@@ -165,8 +165,8 @@ body.home-page .bg-grid {
 }
 
 .ai-grid {
-  display: grid !important;
-  grid-template-columns: minmax(0, 600px) minmax(0, 1fr) !important;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: start;
 }
@@ -212,15 +212,16 @@ body.home-page .bg-grid {
 
 
 
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .ai-grid {
-    grid-template-columns: 1fr !important;
+/* ===== Responsive (Mobile First) ===== */
+/* Mobile: base | Tablet/Desktop: min-width queries */
+@media (min-width: 768px) {
+  .page {
+    padding: 64px 24px 40px;
   }
 }
 
-@media (max-width: 720px) {
-  .page {
-    padding: 40px 18px 72px;
+@media (min-width: 1024px) {
+  .ai-grid {
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
   }
 }

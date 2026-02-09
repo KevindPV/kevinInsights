@@ -1,11 +1,11 @@
 /* ===== Flashlight Component ===== */
 .flashlight-section {
-  padding-top: 460px;
+  padding-top: clamp(320px, 42vw, 460px);
   padding-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  min-height: 620px;
+  min-height: clamp(540px, 74vw, 620px);
   overflow: hidden;
   background: #000000;
 }
@@ -18,8 +18,8 @@
 
 .flashlight__body {
   position: relative;
-  width: min(220px, 80vw);
-  height: 360px;
+  width: clamp(180px, 55vw, 220px);
+  height: 320px;
   border-radius: 30px;
   background: linear-gradient(180deg, #4a4a4a 0%, #2f2f2f 60%, #1c1c1c 100%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
@@ -79,11 +79,11 @@
 
 .flashlight__beam {
   position: absolute;
-  top: -420px;
+  top: -360px;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  height: 460px;
+  width: clamp(240px, 78vw, 300px);
+  height: clamp(320px, 92vw, 380px);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
@@ -206,14 +206,14 @@
   background: radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.22), transparent 70%);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .flashlight__body {
-    height: 320px;
+    height: 360px;
   }
 
   .flashlight__beam {
-    width: 300px;
-    height: 380px;
-    top: -360px;
+    width: 400px;
+    height: 460px;
+    top: -420px;
   }
 }

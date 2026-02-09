@@ -32,7 +32,7 @@ def home(request):
     ]
     context = {
         "steps": steps,
-        "lamp_overlay_title": "QA Focus",
+        "lamp_overlay_title": "    Kevin's Skills",
         "lamp_focus_items": lamp_focus_items,
     }
     return render(request, "index.html", context)

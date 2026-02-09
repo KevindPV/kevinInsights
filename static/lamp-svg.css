@@ -1,7 +1,7 @@
 /* ===== Lamp SVG Component ===== */
 .lamp-svg-section {
-  margin: 0 auto 72px;
-  max-width: 560px;
+  margin: 0 auto 48px;
+  max-width: 420px;
 }
 
 .lamp-svg {
@@ -10,9 +10,9 @@
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .lamp-svg-section {
-    max-width: 420px;
-    margin-bottom: 48px;
+    max-width: 560px;
+    margin-bottom: 72px;
   }
 }

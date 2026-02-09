@@ -12,7 +12,7 @@
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 18px;
   position: relative;
 }
 
@@ -44,9 +44,8 @@
 }
 
 .footer-credit {
-  position: absolute;
-  right: 24px;
-  bottom: 0;
+  position: static;
+  margin-top: 16px;
   font-size: 14px;
   color: #333333;
 }
@@ -72,7 +71,7 @@ body > footer {
 footer .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 18px;
   position: relative;
 }
 
@@ -85,16 +84,32 @@ footer .footer-links a {
 }
 
 footer .footer-credit {
-  position: absolute;
-  right: 24px;
-  bottom: 0;
+  position: static;
+  margin-top: 16px;
   font-size: 14px;
   color: #333333;
 }
 
-@media (max-width: 720px) {
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
+@media (min-width: 768px) {
+  .footer-inner {
+    padding: 0 24px;
+  }
+
+  .footer-credit {
+    position: absolute;
+    right: 24px;
+    bottom: 0;
+    margin-top: 0;
+  }
+
+  footer .footer-inner {
+    padding: 0 24px;
+  }
+
+  footer .footer-credit {
+    position: absolute;
+    right: 24px;
+    bottom: 0;
+    margin-top: 0;
   }
 }
