@@ -57,6 +57,11 @@
   font-size: 15px;
   line-height: 1.3;
   color: rgba(44, 51, 64, 0.9);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.45;
 }
 
 .lamp-overlay__item::before {

@@ -19,8 +19,8 @@ def home(request):
     ]
     steps = [{"title": title, "text": text} for title, text in steps_data]
     lamp_focus_items = [
-        "PyTest 🤖",
-        "Fast regression feedback",
+        "PyTest 🧪",
+        "Selenium 🤖",
         "Automation for critical paths",
         "Shift-left quality checks",
     ]
