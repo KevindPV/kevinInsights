@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static 'header.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'footer.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'banner.css' %}?v=1" />
-    <link rel="stylesheet" href="{% static 'contact.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'contact.css' %}?v=5" />
   </head>
   <body class="contact-page">
     {% include "header.html" %}
@@ -32,8 +32,19 @@
           your team? Write to me and I’ll get back to you soon.
         </p>
         <div class="cta">
-          <a class="btn primary" href="mailto:kevinpantojav@gmail.com">Send email</a>
-          <a class="btn ghost" href="tel:+573205670453">Message me o call me</a>
+          <a
+            class="btn primary"
+            href="mailto:kevinpantojav@gmail.com?subject=QA%20Contact%20from%20Portfolio"
+          >
+            Send email
+          </a>
+          <a class="btn primary" href="tel:+573205670453">
+            Call now
+          </a>
+        </div>
+        <div class="contact-details">
+          <p><strong>Phone:</strong> +57 3205670453</p>
+          <p><strong>Email:</strong> kevinpantojav@gmail.com</p>
         </div>
       </section>
     </main>
@@ -55,6 +66,7 @@
           root.setAttribute("data-theme", next);
           localStorage.setItem("theme", next);
         });
+
       })();
     </script>
   </body>

@@ -24,7 +24,7 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("about-me/", include("about.urls")),
-    path("contact/", TemplateView.as_view(template_name="contact.html"), name="contact"),
+    path("contact/", views.contact, name="contact"),
     path("ai-testing-lab/", TemplateView.as_view(template_name="ai-testing-lab.html"), name="ai_testing_lab"),
     path("api/gemini/", views.gemini_request, name="gemini_request"),
     path("admin/", admin.site.urls),

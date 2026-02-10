@@ -3,6 +3,7 @@ import os
 from urllib import request as urlrequest
 from urllib.error import HTTPError, URLError
 
+from django.core.mail import EmailMessage
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_GET, require_POST
@@ -36,6 +37,49 @@ def home(request):
         "lamp_focus_items": lamp_focus_items,
     }
     return render(request, "index.html", context)
+
+
+def contact(request):
+    context = {
+        "sender_name": "",
+        "message": "",
+        "success_message": "",
+        "error_message": "",
+    }
+
+    if request.method == "POST":
+        sender_name = request.POST.get("sender_name", "").strip()
+        message = request.POST.get("message", "").strip()
+
+        context["sender_name"] = sender_name
+        context["message"] = message
+
+        if not sender_name or not message:
+            context["error_message"] = "Please complete your name and message."
+            return render(request, "contact.html", context)
+
+        subject = "New contact message from Kevin Insights"
+        body = (
+            "New message from contact form\n\n"
+            f"Sender name: {sender_name}\n\n"
+            "Message:\n"
+            f"{message}"
+        )
+
+        try:
+            email = EmailMessage(
+                subject=subject,
+                body=body,
+                to=["kevinpantojav@gmail.com"],
+            )
+            email.send(fail_silently=False)
+            context["success_message"] = "Message sent successfully. Thank you."
+            context["sender_name"] = ""
+            context["message"] = ""
+        except Exception:
+            context["error_message"] = "The message could not be sent right now. Try again later."
+
+    return render(request, "contact.html", context)
 
 
 @require_POST
