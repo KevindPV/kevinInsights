@@ -58,3 +58,11 @@ h1 span {
   border-color: var(--card-border);
   background: rgba(255, 255, 255, 0.04);
 }
+
+/* Force Stack button to use primary visual style on home/about pages */
+.cta a[href="#stack"],
+.cta a[href="/#stack"] {
+  background: linear-gradient(120deg, var(--accent), #f7a659) !important;
+  color: #1d1200 !important;
+  border-color: transparent !important;
+}

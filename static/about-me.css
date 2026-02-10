@@ -17,6 +17,12 @@
   flex-wrap: wrap;
 }
 
+.about-page .cta .btn-stack {
+  background: linear-gradient(120deg, var(--accent), #f7a659);
+  color: #1d1200;
+  border-color: transparent;
+}
+
 .about-page .section {
   margin-bottom: 72px;
 }
