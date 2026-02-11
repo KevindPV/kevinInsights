@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     {% load static %}
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = { corePlugins: { preflight: false } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{% static 'styles.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'header.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'footer.css' %}?v=3" />
@@ -139,4 +144,5 @@
     </script>
   </body>
 </html>
+
 

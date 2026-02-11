@@ -106,8 +106,15 @@
   margin-bottom: 24px;
 }
 
+.section-header h2 {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
 .section-header p {
   color: var(--muted);
+  font-size: clamp(1.06rem, 1.25vw, 1.18rem);
 }
 
 .stack,
@@ -166,3 +173,4 @@
 .step p {
   color: var(--muted);
 }
+

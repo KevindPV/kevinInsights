@@ -74,3 +74,13 @@
     min-width: 58px;
   }
 }
+
+.contact-page .banner h1 {
+  font-size: clamp(3.45rem, 5.4vw, 5.55rem);
+}
+
+.contact-page .banner h1 span {
+  font-size: clamp(1.72rem, 2.55vw, 2.45rem);
+}
+
+
