@@ -15,33 +15,47 @@
     <link rel="stylesheet" href="{% static 'header.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'footer.css' %}?v=1" />
     <link rel="stylesheet" href="{% static 'banner.css' %}?v=1" />
-    <link rel="stylesheet" href="{% static 'about-me.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'about-me.css' %}?v=3" />
   </head>
   <body class="about-page">
     {% include "header.html" %}
 
     <main class="page">
-      <section class="banner">
-        <div class="badge">About Me</div>
-        <h1>
-          QA Analyst &amp; Engineer,
-          <span>focused on quality and clarity</span>
-        </h1>
-        <p class="lead">
-          Bilingual Manual QA Analyst (Advanced English) and Electronic Engineer,
-          with solid experience designing and executing manual test cases and
-          test scenarios based on user stories within Agile/Scrum teams. Strong
-          background in smoke and regression testing, bug identification,
-          documentation, and tracking using JIRA. Experienced in collaborating
-          closely with cross-functional teams, actively participating in Scrum
-          ceremonies, and ensuring acceptance criteria are met. Recognized for
-          critical thinking, strong analytical skills, adaptability, organization,
-          and effective communication in English.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="/#impacto">Ver impacto</a>
-          <a class="btn ghost" href="/#stack">Stack de herramientas</a>
+            <section class="banner about-hero">
+        <div class="about-hero__content">
+          {% include "components/badge.html" with text="About Me" %}
+          <h1>
+            QA Analyst &amp; Engineer,
+            <span>building release confidence</span>
+          </h1>
+          <p class="lead">
+            Bilingual Manual QA Analyst (Advanced English) and Electronic Engineer,
+            with hands-on experience designing test scenarios, validating critical
+            user flows, and reporting quality signals that help teams ship with less
+            risk and better predictability.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="/#impact">Measurable Impact</a>
+            <a class="btn primary btn-stack" href="/#stack">Tool Stack</a>
+          </div>
         </div>
+        <aside class="about-hero__panel" aria-label="QA Snapshot">
+          <h2>QA Snapshot</h2>
+          <ul class="about-hero__metrics">
+            <li>
+              <strong>3+ Years</strong>
+              <span>Manual and Automation QA</span>
+            </li>
+            <li>
+              <strong>Agile/Scrum</strong>
+              <span>Cross-functional team collaboration</span>
+            </li>
+            <li>
+              <strong>Bilingual EN/ES</strong>
+              <span>Clear reporting for global stakeholders</span>
+            </li>
+          </ul>
+        </aside>
       </section>
 
       <section class="section">
@@ -109,3 +123,4 @@
     </script>
   </body>
 </html>
+

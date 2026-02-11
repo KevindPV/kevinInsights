@@ -12,28 +12,39 @@ from django.views.decorators.http import require_GET, require_POST
 @require_GET
 def home(request):
     steps_data = [
-        ("Planificación estratégica", "Identifico alcance, riesgos, criterios de entrada/salida, estrategia y métricas de calidad para enfocar el esfuerzo donde más impacto genera."),
-        ("Diseño inteligente de pruebas", "Creo casos de prueba claros usando técnicas ISTQB (equivalencias, límites, tablas de decisión, estados) y priorizo por riesgo y valor al usuario."),
-        ("Implementación y automatización", "Configuro datos, entornos y automatizaciones (UI, APIs, CI/CD) para lograr ejecución rápida, estable y continua."),
-        ("Ejecución y control", "Ejecuto smoke, regresión y exploratorias, gestiono defectos accionables y monitoreo cobertura, pass rate y calidad del código."),
-        ("Mejora continua", "Analizo métricas, realizo post-mortems y ajusto pipelines, cobertura y procesos para elevar la calidad sprint tras sprint."),
+        (
+            "Strategic Planning",
+            "Define scope, risks, entry and exit criteria, and quality metrics to focus effort where business impact is highest.",
+        ),
+        (
+            "Intelligent Test Design",
+            "Create clear test cases using ISTQB techniques and prioritize scenarios by risk and user value.",
+        ),
+        (
+            "Implementation and Automation",
+            "Prepare data, environments, and automation flows (UI, APIs, CI/CD) for fast, stable, and repeatable execution.",
+        ),
+        (
+            "Execution and Control",
+            "Run smoke, regression, and exploratory sessions, manage actionable defects, and monitor coverage and pass rate.",
+        ),
+        (
+            "Continuous Improvement",
+            "Analyze metrics, run post-mortems, and optimize pipelines and coverage to raise release quality sprint over sprint.",
+        ),
     ]
     steps = [{"title": title, "text": text} for title, text in steps_data]
     lamp_focus_items = [
-        "PyTest 🧪",
-        "Selenium 🤖",
+        "PyTest",
+        "Selenium",
         "BDD",
-        "Jmeter",
-        "",
-        "Detail oriented person",
-        "",
-        "",
-        "",
+        "JMeter",
+        "Detail-oriented execution",
         "Automation for critical paths",
     ]
     context = {
         "steps": steps,
-        "lamp_overlay_title": "    Kevin's Skills",
+        "lamp_overlay_title": "Kevin's Skills",
         "lamp_focus_items": lamp_focus_items,
     }
     return render(request, "index.html", context)
@@ -114,7 +125,6 @@ def gemini_request(request):
 
     url = (
         "https://generativelanguage.googleapis.com/v1beta/models/"
-        #"gemini-3-flash-preview:generateContent"
         "gemini-2.5-flash:generateContent"
     )
     system_prompt = (
