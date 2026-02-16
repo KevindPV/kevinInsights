@@ -46,9 +46,19 @@ DEBUG = os.environ.get("DEBUG", "False").lower() in ("1", "true", "yes", "on")
 DEBUG_PROPAGATE_EXCEPTIONS = DEBUG
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-if render_host:
-    ALLOWED_HOSTS.append(render_host)
+
+# Production hosts can be injected as comma-separated values.
+extra_hosts = os.environ.get("ALLOWED_HOSTS", "")
+if extra_hosts:
+    ALLOWED_HOSTS.extend([h.strip() for h in extra_hosts.split(",") if h.strip()])
+
+for env_key in ("RENDER_EXTERNAL_HOSTNAME", "SEENODE_EXTERNAL_HOSTNAME", "EXTERNAL_HOSTNAME"):
+    env_host = os.environ.get(env_key)
+    if env_host:
+        ALLOWED_HOSTS.append(env_host)
+
+# De-duplicate while preserving order.
+ALLOWED_HOSTS = list(dict.fromkeys(ALLOWED_HOSTS))
 
 
 # Application definition
@@ -152,4 +162,5 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True').lower() in ('1', 'true', 'yes', 'on')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'no-reply@kevininsights.local')
+
 
